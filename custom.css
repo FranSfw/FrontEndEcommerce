@@ -1,0 +1,70 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fdfbf8;
+}
+
+.height90 {
+    height: 90vh;
+}
+
+.height100 {
+    height: 100vh;
+}
+
+.background-coffee {
+    background-color: #1b1107;
+    color: #fdfbf8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.button {
+    display: inline-block;
+    background-color: #fdfbf8;
+    color: #1b1107;
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    text-decoration: none;
+}
+
+.p-64 {
+    padding: 64px;
+}
+
+.px-64 {
+    padding-left: 64px;
+    padding-right: 64px;
+}
+
+.background-light-coffee {
+    background-color: #efdfc4;
+    color: #1d0f08;
+}
+
+.best-sellers-card {
+    background-color: #fdfbf8;
+    padding: 1rem;
+    border-radius: 1rem;
+
+}
