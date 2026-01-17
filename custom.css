@@ -63,8 +63,64 @@ nav ul li a {
 }
 
 .best-sellers-card {
-    background-color: #fdfbf8;
+
     padding: 1rem;
     border-radius: 1rem;
 
+}
+
+.best-sellers-card img {
+    width: auto;
+    height: 300px;
+    object-fit: contain;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+
+}
+
+.best-sellers-card h3 {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.comunity-card {
+    padding-top: 64px;
+    padding-left: 64px;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.contact-section {
+    background-color: #1b1107;
+    color: #fdfbf8;
+    padding: 32px;
+    padding-top: 0px;
+}
+
+.max-width {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.flex {
+    display: flex;
+    gap: 1rem;
+}
+
+.i-follow-us {
+    font-size: 2rem;
+}
+
+.contact-sections>div {
+    border-color: #b89d84;
+    border: 1px solid;
+    padding: 1rem;
 }
