@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fran'z Coffee House">
+    <meta name="keywords" content="coffee, coffee house, cappuccino, chai, matcha latte, fresh roasted coffee, artisan coffee">
     <link rel="stylesheet" href="custom.css">
-    <title>Ecommerce</title>
-
-        <link
+    <title>Fran'z Coffee House</title>
+    <link
       rel="stylesheet"
       type="text/css"
       href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"
@@ -20,73 +21,86 @@
 <body>
     <header>
         <nav class="background-coffee px-64">
-            <span>Fran'z Coffee House</span>
+            <span class="nav-brand">Fran'z Coffee House</span>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Best Sellers</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#best-sellers">Best Sellers</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul> 
         </nav>
     </header>
-    <!--hero-->
-    <div class="height90 grid-2 background-coffee">
-        <div class="p-64">
-            <span style="font-size: 6rem;">Fran'z <br> </span>
-            <span style="font-size: 6rem;">Coffee House</span>
+    
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-section background-coffee">
+            <div class="hero-content p-64">
+                <h1 class="hero-title">
+                    Fran'z <br> Coffee House
+                </h1>
 
-            <p style="font-size: 1.5rem;">Experience the rich aroma of our freshly roasted coffee beans, handcrafted with care and passion. Savor every sip and let the flavors transport you to a world of pure coffee bliss.</p>
+                <p class="hero-description">Experience the rich aroma of our freshly roasted coffee beans, handcrafted with care and passion. Savor every sip and let the flavors transport you to a world of pure coffee bliss.</p>
 
-            <a href="#" style="font-size: 1.5rem;" class="button">Know the best sellers</a>
-        </div>
-        <div>
-            <img src="assets/cup.jpg" style="width: ;" alt="">
-        </div>
-    </div>
-    <!--best sellers-->
-    <div class="height100 background-light-coffee">
-        <h2 style="font-size: 4rem; text-align: center;">Best Sellers</h2>
-        <div class="grid-3">
-            <div class="best-sellers-card">
-                <h3>Capuccino</h3>
-                <img src="assets/capu-removebg-preview.png" alt="">
+                <a href="#best-sellers" class="button button-large">Know the best sellers</a>
             </div>
-            <div class="best-sellers-card">
-                <h3>House's Chai</h3>
-                <img src="assets/chai-removebg-preview.png" alt="">
+            <div class="hero-image">
+                <img src="assets/cup.png" alt="Steaming cup of Fran'z premium coffee on a wooden table">
             </div>
-            <div class="best-sellers-card">
-                <h3>Matcha Latte</h3>
-                <img src="assets/matcha-removebg-preview.png" alt="">
+        </section>
+        
+        <!-- Best Sellers Section -->
+        <section id="best-sellers" class="best-sellers-section background-light-coffee">
+            <h2 class="section-title">Best Sellers</h2>
+            <div class="grid-3 products-grid">
+                <article class="best-sellers-card">
+                    <h3>Cappuccino</h3>
+                    <img src="assets/capu-removebg-preview.png" alt="Delicious cappuccino with creamy foam and rich espresso">
+                </article>
+                <article class="best-sellers-card">
+                    <h3>House's Chai</h3>
+                    <img src="assets/chai-removebg-preview.png" alt="Aromatic house chai tea with traditional spices">
+                </article>
+                <article class="best-sellers-card">
+                    <h3>Matcha Latte</h3>
+                    <img src="assets/matcha-removebg-preview.png" alt="Vibrant green matcha latte with smooth texture">
+                </article>
             </div>
-        </div>
-    </div>
-    <!--comunity-->
-    <div class="height100 background-light-coffee">
-        <h2 style="font-size: 4rem; text-align: center;">Comunity</h2>
-        <img class="comunity-card" src="assets/IMG_8851.JPG" alt="">
-    </div>
-    <!--contact-->
-    <div class="contact-section">
+        </section>
+        
+        <!-- Community Section -->  
+        <section class="community-section background-light-coffee">
+            <h2 class="section-title">Community</h2>
+            <img class="community-image" src="assets/IMG_8851.JPG" alt="Fran'z Coffee House community gathering with customers enjoying coffee together">
+        </section>
+    </main>
+    
+    <!-- Footer / Contact Section -->
+    <footer id="contact" class="contact-section">
         <div class="grid-3 max-width contact-sections">
             <div>
-                <h5>Fran'z Coffee House</h5>
+                <h3>Fran'z Coffee House</h3>
                 <p>123 Main St, Anytown, USA</p>
             </div>
             <div>
-                <h5>Contact Us</h5>
+                <h3>Contact Us</h3>
                 <p>Phone: +1 234 567 890</p>
                 <p>Email: info@franzcoffeehouse.com</p>
             </div>
             <div>
-                <h5>Follow Us</h5>
-                <div class="flex">
-                    <i class="ph ph-facebook-logo i-follow-us"></i>
-                    <i class="ph ph-instagram-logo i-follow-us"></i>
-                    <i class="ph ph-x-logo i-follow-us"></i>
+                <h3>Follow Us</h3>
+                <div class="flex social-links">
+                    <a href="#" aria-label="Follow us on Facebook">
+                        <i class="ph ph-facebook-logo i-follow-us"></i>
+                    </a>
+                    <a href="#" aria-label="Follow us on Instagram">
+                        <i class="ph ph-instagram-logo i-follow-us"></i>
+                    </a>
+                    <a href="#" aria-label="Follow us on X (Twitter)">
+                        <i class="ph ph-x-logo i-follow-us"></i>
+                    </a>
                 </div>
             </div>
         </div>
-    </div>  
+    </footer>
 
 </body>
 </html>
