@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fran'z Coffee House Menu - Explore our delicious drinks">
+    <link rel="stylesheet" href="custom.css">
+    <title>Menu - Fran'z Coffee House</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"
+    />
+</head>
+<body>
+    <header>
+        <nav class="background-coffee px-64">
+            <div class="nav-mobile">
+                <i class="ph ph-list"></i>
+                <span class="nav-brand">Fran'z Coffee House</span>
+                <a href="cart.html" class="cart-icon-link">
+                    <i class="ph ph-shopping-cart"></i>
+                    <span id="cart-count-mobile" class="cart-badge">0</span>
+                </a>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li>
+                    <a href="cart.html" class="cart-icon-link">
+                        <i class="ph ph-shopping-cart"></i>
+                        <span id="cart-count" class="cart-badge">0</span>
+                    </a>
+                </li>
+            </ul> 
+        </nav>
+    </header>
+    
+    <main>
+        <section class="menu-section background-light-coffee">
+            <h1 class="section-title">Our Menu</h1>
+            <div id="drinks-container" class="grid-3 products-grid">
+                <!-- Las bebidas se cargarán aquí con JavaScript -->
+            </div>
+        </section>
+    </main>
+    
+    <footer id="contact" class="contact-section">
+        <div class="grid-3 max-width contact-sections">
+            <div>
+                <h3>Fran'z Coffee House</h3>
+                <p>123 Main St, Anytown, USA</p>
+            </div>
+            <div>
+                <h3>Contact Us</h3>
+                <p>Phone: +1 234 567 890</p>
+                <p>Email: info@franzcoffeehouse.com</p>
+            </div>
+            <div>
+                <h3>Follow Us</h3>
+                <div class="flex social-links">
+                    <a href="#" aria-label="Follow us on Facebook">
+                        <i class="ph ph-facebook-logo i-follow-us"></i>
+                    </a>
+                    <a href="#" aria-label="Follow us on Instagram">
+                        <i class="ph ph-instagram-logo i-follow-us"></i>
+                    </a>
+                    <a href="#" aria-label="Follow us on X (Twitter)">
+                        <i class="ph ph-x-logo i-follow-us"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="cart.js"></script>
+    <script>
+        // Cargar las bebidas del JSON
+        fetch('drinks.json')
+            .then(response => response.json())
+            .then(drinks => {
+                const container = document.getElementById('drinks-container');
+                
+                drinks.forEach(drink => {
+                    // Crear la tarjeta de cada bebida
+                    const card = document.createElement('article');
+                    card.className = 'best-sellers-card';
+                    
+                    card.innerHTML = `
+                        <h3>${drink.nombre}</h3>
+                        <img src="${drink.img}" alt="${drink.nombre}">
+                        <p class="drink-price">$${drink.precio.toFixed(2)}</p>
+                        <button class="button add-to-cart-btn" onclick='addToCart(${JSON.stringify(drink)})'>
+                            <i class="ph ph-shopping-cart"></i> Add to Cart
+                        </button>
+                    `;
+                    
+                    container.appendChild(card);
+                });
+            })
+            .catch(error => console.error('Error cargando las bebidas:', error));
+    </script>
+
+</body>
+</html>

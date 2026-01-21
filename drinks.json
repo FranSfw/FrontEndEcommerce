@@ -1,0 +1,52 @@
+[
+    {
+        "nombre": "Black Coffee",
+        "img": "assets/drinks/dk_americano.png",
+        "precio": 35.00
+    },
+    {
+        "nombre": "Mocha",
+        "img": "assets/drinks/dk_mocha.png",
+        "precio": 55.00
+    },
+    {
+        "nombre": "Ice Latte",
+        "img": "assets/drinks/dk_latte.png",
+        "precio": 50.00
+    },
+    {
+        "nombre": "French Vanilla",
+        "img": "assets/drinks/dk_vanilla.png",
+        "precio": 58.00
+    },
+    {
+        "nombre": "Chai",
+        "img": "assets/drinks/dk_chai.png",
+        "precio": 52.00
+    },
+    {
+        "nombre": "Dirty Chai",
+        "img": "assets/drinks/dk_dirtychai.png",
+        "precio": 62.00
+    },
+    {
+        "nombre": "Pistachio Matcha",
+        "img": "assets/drinks/dk_pistachiomatcha.png",
+        "precio": 65.00
+    },
+    {
+        "nombre": "Banana Matcha",
+        "img": "assets/drinks/dk_bananamatcha.png",
+        "precio": 65.00
+    },
+    {
+        "nombre": "Oreo Latte",
+        "img": "assets/drinks/dk_oreolatte.png",
+        "precio": 68.00
+    },
+    {
+        "nombre": "Caramel Macchiato",
+        "img": "assets/drinks/dk_caramel.png",
+        "precio": 60.00
+    }
+]
