@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,95 +17,108 @@
       type="text/css"
       href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css"
     />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="m-0 p-0 font-sans leading-relaxed">
     <header>
-        <nav class="background-coffee px-64">
-            <div class="nav-mobile">
-                <i class="ph ph-list"></i>
-                <span class="nav-brand">Fran'z Coffee House</span>
-                <i class="ph ph-shopping-cart"></i>
+        <nav class="bg-[#1b1107] text-[#fdfbf8] flex justify-between items-center h-[10vh] min-h-[60px] px-16 max-md:px-8 max-sm:flex-col max-sm:h-auto max-sm:py-4 max-sm:gap-4">
+            <div class="hidden max-sm:flex justify-between items-center w-full">
+                <button id="mobile-menu-toggle" class="bg-transparent border-none text-[#fdfbf8] cursor-pointer p-0" aria-label="Toggle menu">
+                    <i class="ph ph-list text-3xl"></i>
+                </button>
+                <span class="text-xl font-semibold flex items-center"><img class="brightness-0 invert h-[50px]" src="assets/LogoOT.png" alt="Logo Fran'z Coffee House"></span>
+                <a href="cart.html" class="relative text-[#fdfbf8] no-underline flex items-center">
+                    <i class="ph ph-shopping-cart text-3xl"></i>
+                    <span id="cart-count-mobile-icon" class="absolute -top-2 -right-2 bg-[#d32f2f] text-white rounded-full w-5 h-5 hidden items-center justify-center text-xs font-semibold">0</span>
+                </a>
             </div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#best-sellers">Best Sellers</a></li>
-                <li><a href="#contact">Contact</a></li>
+            <ul id="mobile-menu" class="flex items-center list-none gap-8 max-md:gap-4 max-sm:flex-col max-sm:text-center max-sm:gap-2 max-sm:hidden max-sm:w-full">
+                <li><a href="#home" class="max-sm:hidden flex items-center"><img class="brightness-0 invert h-[50px]" src="assets/LogoOT.png" alt="Logo Fran'z Coffee House"></a></li>
+                <li><a href="#best-sellers" class="no-underline text-[#fdfbf8] transition-opacity duration-300 hover:opacity-80">Best Sellers</a></li>
+                <li><a href="#contact" class="no-underline text-[#fdfbf8] transition-opacity duration-300 hover:opacity-80">Contact</a></li>
+                <li><a href="menu.html" class="no-underline text-[#fdfbf8] transition-opacity duration-300 hover:opacity-80">Menu</a></li>
             </ul> 
+            <a href="cart.html" class="relative text-[#fdfbf8] no-underline flex items-center max-sm:hidden">
+                <i class="ph ph-shopping-cart text-3xl"></i>
+                <span id="cart-count" class="absolute -top-2 -right-2 bg-[#d32f2f] text-white rounded-full w-5 h-5 hidden items-center justify-center text-xs font-semibold">0</span>
+            </a>
         </nav>
     </header>
     
     <main>
         <!-- Hero Section -->
-        <section id="home" class="hero-section background-coffee">
-            <video class="hero-video" src="assets/herovideo.mp4" autoplay muted loop></video>
-            <div class="hero-content p-64">
-                <h1 class="hero-title">
-                    Fran'z <br> Coffee House
+        <section id="home" class="relative grid grid-cols-2 min-h-[90vh] items-center overflow-hidden bg-[#1b1107] text-[#fdfbf8] max-md:grid-cols-1 max-md:min-h-auto">
+            <video class="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-50" src="assets/herovideo.mp4" autoplay muted loop></video>
+            <div class="relative z-10 p-16 max-md:p-8 max-sm:p-6">
+                <h1 class="mb-6 invert">
+                    <img src="assets/Logo.svg" alt="Logo Fran'z Coffee House" class="w-full max-w-[250px] h-auto block">
                 </h1>
 
-                <p class="hero-description">Experience the rich aroma of our freshly roasted coffee beans, handcrafted with care and passion. Savor every sip and let the flavors transport you to a world of pure coffee bliss.</p>
-
-                <a href="#best-sellers" class="button button-large">Know the best sellers</a>
+                <p class="text-[clamp(.9rem,1.8vw,1.2rem)] mb-8 max-w-[600px]">Experience the rich aroma of our freshly roasted coffee beans, handcrafted with care and passion. Savor every sip and let the flavors transport you to a world of pure coffee bliss.</p>
+                
+                <a href="menu.html" class="inline-block bg-[#fdfbf8] text-[#1b1107] px-8 py-4 no-underline rounded-lg transition-all duration-300 font-semibold text-[clamp(1rem,2vw,1.5rem)] hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,0,0,0.2)] max-sm:px-6 max-sm:py-3.5">See our menu</a>
             </div>
-            <div class="hero-image">
-                <img src="assets/cup.png" alt="Steaming cup of Fran'z premium coffee on a wooden table">
+            <div class="relative z-10 flex items-center justify-center h-[70%] max-md:min-h-[50vh]">
             </div>
         </section>
         
         <!-- Best Sellers Section -->
-        <section id="best-sellers" class="best-sellers-section background-light-coffee">
-            <h2 class="section-title">Best Sellers</h2>
-            <div class="grid-3 products-grid">
-                <article class="best-sellers-card">
-                    <h3>Cappuccino</h3>
-                    <img src="assets/capu-removebg-preview.png" alt="Delicious cappuccino with creamy foam and rich espresso">
+        <section id="best-sellers" class="min-h-screen py-16 px-8 bg-[#efdfc4] text-[#1d0f08] max-md:min-h-auto max-md:py-12 max-md:px-4">
+            <h2 class="text-[clamp(2.5rem,6vw,4rem)] text-center mb-12 max-sm:text-[2rem]">Best Sellers</h2>
+            <div class="grid grid-cols-3 gap-8 max-w-[1400px] mx-auto max-md:grid-cols-2 max-sm:grid-cols-1">
+                <article class="p-4 rounded-2xl transition-transform duration-300 hover:-translate-y-1">
+                    <h3 class="text-center text-[clamp(1.5rem,3vw,2rem)] mb-4 max-sm:text-2xl">Cappuccino</h3>
+                    <img src="assets/home_cappuccino.png" alt="Delicious cappuccino with creamy foam and rich espresso" class="w-full max-w-[300px] h-auto object-contain block mx-auto">
                 </article>
-                <article class="best-sellers-card">
-                    <h3>House's Chai</h3>
-                    <img src="assets/chai-removebg-preview.png" alt="Aromatic house chai tea with traditional spices">
+                <article class="p-4 rounded-2xl transition-transform duration-300 hover:-translate-y-1">
+                    <h3 class="text-center text-[clamp(1.5rem,3vw,2rem)] mb-4 max-sm:text-2xl">House's Chai</h3>
+                    <img src="assets/home_chai.png" alt="Aromatic house chai tea with traditional spices" class="w-full max-w-[300px] h-auto object-contain block mx-auto">
                 </article>
-                <article class="best-sellers-card">
-                    <h3>Matcha Latte</h3>
-                    <img src="assets/matcha-removebg-preview.png" alt="Vibrant green matcha latte with smooth texture">
+                <article class="p-4 rounded-2xl transition-transform duration-300 hover:-translate-y-1">
+                    <h3 class="text-center text-[clamp(1.5rem,3vw,2rem)] mb-4 max-sm:text-2xl">Matcha Latte</h3>
+                    <img src="assets/home_matcha.png" alt="Vibrant green matcha latte with smooth texture" class="w-full max-w-[300px] h-auto object-contain block mx-auto">
                 </article>
             </div>
         </section>
         
         <!-- Community Section -->  
-        <section class="community-section background-light-coffee">
-            <h2 class="section-title">Community</h2>
-            <img class="community-image" src="assets/IMG_8851.JPG" alt="Fran'z Coffee House community gathering with customers enjoying coffee together">
+        <section class="min-h-screen py-16 px-8 flex flex-col items-center justify-center bg-[#efdfc4] text-[#1d0f08] max-md:min-h-auto max-md:py-12 max-md:px-4">
+            <h2 class="text-[clamp(2.5rem,6vw,4rem)] text-center mb-12 max-sm:text-[2rem]">Community</h2>
+            <img class="w-[90%] max-w-[800px] h-auto max-h-[500px] object-cover rounded-2xl mt-8 max-md:w-full max-md:max-h-[400px]" src="assets/community_1.JPG" alt="Fran'z Coffee House community gathering with customers enjoying coffee together">
         </section>
     </main>
     
     <!-- Footer / Contact Section -->
-    <footer id="contact" class="contact-section">
-        <div class="grid-3 max-width contact-sections">
-            <div>
-                <h3>Fran'z Coffee House</h3>
-                <p>123 Main St, Anytown, USA</p>
+    <footer id="contact" class="bg-[#1b1107] text-[#fdfbf8] py-16 px-8 max-md:py-8 max-md:px-4">
+        <div class="grid grid-cols-3 gap-8 max-w-[1200px] mx-auto max-md:grid-cols-2 max-sm:grid-cols-1">
+            <div class="border border-[#b89d84] p-6 rounded-lg max-md:p-4">
+                <h3 class="mb-4 text-2xl">Fran'z Coffee House</h3>
+                <p class="mb-2">123 Main St, Anytown, USA</p>
             </div>
-            <div>
-                <h3>Contact Us</h3>
-                <p>Phone: +1 234 567 890</p>
-                <p>Email: info@franzcoffeehouse.com</p>
+            <div class="border border-[#b89d84] p-6 rounded-lg max-md:p-4">
+                <h3 class="mb-4 text-2xl">Contact Us</h3>
+                <p class="mb-2">Phone: +1 234 567 890</p>
+                <p class="mb-2">Email: info@franzcoffeehouse.com</p>
             </div>
-            <div>
-                <h3>Follow Us</h3>
-                <div class="flex social-links">
-                    <a href="#" aria-label="Follow us on Facebook">
-                        <i class="ph ph-facebook-logo i-follow-us"></i>
+            <div class="border border-[#b89d84] p-6 rounded-lg md:p-4">
+                <h3 class="mb-4 text-2xl">Follow Us</h3>
+                <div class="flex gap-4">
+                    <a href="#" aria-label="Follow us on Facebook" class="text-[#fdfbf8] transition-colors duration-300 hover:text-[#b89d84]">
+                        <i class="ph ph-facebook-logo text-[2rem]"></i>
                     </a>
-                    <a href="#" aria-label="Follow us on Instagram">
-                        <i class="ph ph-instagram-logo i-follow-us"></i>
+                    <a href="#" aria-label="Follow us on Instagram" class="text-[#fdfbf8] transition-colors duration-300 hover:text-[#b89d84]">
+                        <i class="ph ph-instagram-logo text-[2rem]"></i>
                     </a>
-                    <a href="#" aria-label="Follow us on X (Twitter)">
-                        <i class="ph ph-x-logo i-follow-us"></i>
+                    <a href="#" aria-label="Follow us on X (Twitter)" class="text-[#fdfbf8] transition-colors duration-300 hover:text-[#b89d84]">
+                        <i class="ph ph-x-logo text-[2rem]"></i>
                     </a>
                 </div>
             </div>
         </div>
     </footer>
-
+    <script src="custom.js"></script>
 </body>
 </html>
