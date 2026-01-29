@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In - Fran'z Coffee House</title>
+    <link rel="stylesheet" href="custom.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Outfit', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+    </style>
+</head>
+<body class="bg-[#fdfbf8] text-[#1b1107]">
+
+    <div class="flex min-h-screen w-full">
+        
+        <!-- Form -->
+        <div class="w-full lg:w-1/2 flex flex-col justify-center px-8 sm:px-12 lg:px-24 xl:px-32 py-8 bg-white relative">
+            
+            <div class="w-full max-w-md mx-auto">
+                <div class="flex items-center justify-left mb-8 ">
+                   <img src="assets/LogoOT.svg" alt="Icon" class="w-30 h-15 object-contain brightness-0 ">
+                </div>
+
+                <h1 class="text-4xl font-bold mb-2 text-[#1b1107] tracking-tight">Welcome Back</h1>
+                <p class="text-[#1b1107]/60 mb-10 text-lg">Good to see you again! Please enter your details.</p>
+
+                <form class="space-y-6">
+                    <div>
+                        <label for="email" class="block text-sm font-semibold text-[#1b1107] mb-2">Email</label>
+                        <input type="email" id="email" placeholder="hello@franzcoffee.com" class="w-full px-4 py-4 rounded-xl border border-[#e5e7eb] focus:border-[#b89d84] focus:ring-2 focus:ring-[#b89d84]/20 outline-none transition-all placeholder:text-gray-400 bg-gray-50/50">
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <label for="password" class="block text-sm font-semibold text-[#1b1107]">Password</label>
+                            <a href="#" class="text-sm font-semibold text-[#b89d84] hover:text-[#1b1107] transition-colors">Forgot?</a>
+                        </div>
+                        <input type="password" id="password" class="w-full px-4 py-4 rounded-xl border border-[#e5e7eb] focus:border-[#b89d84] focus:ring-2 focus:ring-[#b89d84]/20 outline-none transition-all bg-gray-50/50">
+                    </div>
+
+                    <button type="button" class="w-full bg-[#1b1107] text-[#fdfbf8] py-4 rounded-xl font-semibold text-lg shadow-lg hover:bg-[#2c1e12] hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 cursor-pointer">
+                        Log in
+                    </button>
+                </form>
+
+                <div class="mt-8 text-center">
+                    <p class="text-[#1b1107]/60">Don't have an account? <a href="sign-up.html" class="font-bold text-[#1b1107] hover:underline">Sign up</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Decoracion -->
+        <div class="hidden lg:flex lg:w-1/2 bg-[#1b1107] relative overflow-hidden items-center justify-center p-10">
+            
+            <div class="relative z-10 w-full max-w-lg text-center">
+                <h2 class="font-serif text-6xl md:text-7xl text-[#fdfbf8] leading-[1.1] mb-8">
+                    Savor <br> 
+                    <span class="italic text-[#efdfc4]">the Moment</span>, <br>
+                    Join Us.
+                </h2>
+                
+                <img src="assets/stk_barista2.png" alt="Barista" class="w-[500px] mx-auto transition-all duration-500 ease-in-out hover:scale-105 hover:rotate-2">
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
