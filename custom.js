@@ -125,39 +125,84 @@ function showNotification(message) {
     }, 2000);
 }
 
+// Funciones de Favoritos
+function getFavorites() {
+    const favorites = localStorage.getItem('favorites');
+    return favorites ? JSON.parse(favorites) : [];
+}
+
+function toggleFavorite(id) {
+    let favorites = getFavorites();
+    const index = favorites.indexOf(id);
+
+    if (index === -1) {
+        favorites.push(id); // Agregar a favoritos
+        showNotification('Added to favorites!');
+    } else {
+        favorites.splice(index, 1); // Quitar de favoritos
+        showNotification('Removed from favorites');
+    }
+
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+    loadDrinksMenu(); // Recargar menú para actualizar orden
+}
+
 // Cargar las bebidas del JSON en el menú
 function loadDrinksMenu() {
     fetch('drinks.json')
         .then(response => response.json())
         .then(drinks => {
             const container = document.getElementById('drinks-container');
-
             if (!container) return;
 
+            container.innerHTML = '';
+
+            const favorites = getFavorites();
+
+            drinks.sort((a, b) => {
+                const isFavA = favorites.includes(a.id);
+                const isFavB = favorites.includes(b.id);
+                if (isFavA && !isFavB) return -1;
+                if (!isFavA && isFavB) return 1;
+                return 0;
+            });
+
             drinks.forEach(drink => {
+                const isFavorite = favorites.includes(drink.id);
+                const starClass = isFavorite ? 'text-yellow-500' : 'text-[#1b1107]';
+
                 // Crear la tarjeta de cada bebida
                 const card = document.createElement('article');
-                card.className = 'group p-4 rounded-3xl transition-all duration-300 hover:-translate-y-2';
+                card.className = 'group p-4 rounded-3xl transition-all duration-300 hover:-translate-y-2 relative'; // Added relative here
+
+                // Botón de favorito
+                const favButton = `
+                <button onclick="toggleFavorite(${drink.id})" class="absolute top-2 right-2 z-20 w-10 h-10 flex items-center justify-center bg-white/80 backdrop-blur-sm rounded-full shadow-sm hover:scale-110 transition-transform cursor-pointer border-none">
+                    <i class="ph ph-fill ph-star ${starClass} text-2xl transition-colors"></i>
+                </button>
+            `;
 
                 card.innerHTML = `
-                    <div class="relative overflow-visible mb-6 flex items-center justify-center h-[300px]">
-                        <img src="${drink.img}" alt="${drink.nombre}" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110 drop-shadow-xl filter">
-                    </div>
+                ${favButton}
+                <div class="relative overflow-visible mb-6 flex items-center justify-center h-[300px]">
+                    <img src="${drink.img}" alt="${drink.nombre}" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110 drop-shadow-xl filter">
+                </div>
+                
+                <div class="text-center">
+                    <h3 class="playfair-display text-3xl font-bold text-[#1b1107] mb-2 tracking-wide min-h-[72px] flex items-end justify-center leading-tight">${drink.nombre}</h3>
+                    <p class="text-xl font-medium text-[#1b1107]/80 mb-6">$${drink.precio.toFixed(2)}</p>
                     
-                    <div class="text-center">
-                        <h3 class="playfair-display text-3xl font-bold text-[#1b1107] mb-2 tracking-wide">${drink.nombre}</h3>
-                        <p class="text-xl font-medium text-[#1b1107]/80 mb-6">$${drink.precio.toFixed(2)}</p>
-                        
-                        <button class="w-full bg-[#1b1107] text-[#fdfbf8] py-4 px-6 rounded-full font-sans text-base font-semibold tracking-wide transition-all duration-300 hover:bg-[#b89d84] hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer border-none transform active:scale-95" onclick='addToCart(${JSON.stringify(drink)})'>
-                            <i class="ph ph-shopping-cart text-xl"></i> <span>Add to Cart</span>
-                        </button>
-                    </div>
-                `;
+                    <button class="w-full bg-[#1b1107] text-[#fdfbf8] py-4 px-6 rounded-full font-sans text-base font-semibold tracking-wide transition-all duration-300 hover:bg-[#b89d84] hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer border-none transform active:scale-95" onclick='addToCart(${JSON.stringify(drink)})'>
+                        <i class="ph ph-shopping-cart text-xl"></i> <span>Add to Cart</span>
+                    </button>
+                </div>
+            `;
 
                 container.appendChild(card);
             });
         })
         .catch(error => console.error('Error cargando las bebidas:', error));
+
 }
 
 // Inicializar al cargar la página
